@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Проекты</title>
+    <meta name="description" content="Учебная страница со списком проектов">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23243b69'/%3E%3Cpath d='M17 19h30v7H17zm0 12h30v7H17zm0 12h20v7H17z' fill='white'/%3E%3C/svg%3E">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <main class="shell">
+      <p class="eyebrow">Рабочее пространство</p>
+      <h1>Проекты</h1>
+
+      <section class="workspace" aria-label="Список проектов">
+        <div class="toolbar">
+          <label class="search">
+            <svg aria-hidden="true" width="19" height="19" viewBox="0 0 24 24" fill="none">
+              <circle cx="10.8" cy="10.8" r="6.7" stroke="currentColor" stroke-width="2" />
+              <path d="m16 16 5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            </svg>
+            <input id="search" type="search" placeholder="Поиск по названию" aria-label="Поиск по названию проекта">
+          </label>
+          <button class="primary" id="create" type="button">+ Создать проект</button>
+        </div>
+
+        <h2 class="section-title" id="count">Все проекты</h2>
+        <div class="grid" id="list" aria-live="polite"></div>
+      </section>
+    </main>
+
+    <div class="backdrop" id="backdrop" hidden>
+      <div class="modal" role="dialog" aria-modal="true" aria-labelledby="dialog-title">
+        <h2 id="dialog-title">Новый проект</h2>
+        <form id="form" novalidate>
+          <label class="label" for="name">Название проекта</label>
+          <input class="field" id="name" name="name" maxlength="100" required autocomplete="off" aria-describedby="name-error">
+          <p class="error" id="name-error" role="alert"></p>
+
+          <label class="label" for="description">Описание</label>
+          <textarea class="field textarea" id="description" name="description" maxlength="500" required aria-describedby="description-error"></textarea>
+          <p class="error" id="description-error" role="alert"></p>
+
+          <div class="actions">
+            <button class="secondary" id="cancel" type="button">Отмена</button>
+            <button class="primary" type="submit">Создать проект</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
